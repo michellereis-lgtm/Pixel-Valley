@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pixel Valley - A Última Colheita">
+    <title>Pixel Valley — A Última Colheita</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="startScreen" class="screen">
+        <div class="start-world">
+            <div class="sky-gradient"></div>
+            <div class="start-sun"></div>
+            <div class="cloud cloud-one"></div>
+            <div class="cloud cloud-two"></div>
+            <div class="cloud cloud-three"></div>
+            <div class="mountain mountain-back"></div>
+            <div class="mountain mountain-middle"></div>
+            <div class="mountain mountain-front"></div>
+            <div class="forest forest-left"><span></span><span></span><span></span><span></span></div>
+            <div class="forest forest-right"><span></span><span></span><span></span><span></span></div>
+            <div class="start-ground"></div>
+            <div class="start-path"></div>
+            <div class="start-flower flower-one">✦</div>
+            <div class="start-flower flower-two">✦</div>
+            <div class="start-flower flower-three">✦</div>
+        </div>
+
+        <div class="start-content">
+            <div class="title-decoration"><span></span><i>✦</i><span></span></div>
+
+            <div class="game-title">
+                <small>UMA PEQUENA AVENTURA</small>
+                <h1>PIXEL <strong>VALLEY</strong></h1>
+                <div class="title-divider"></div>
+                <h2>A ÚLTIMA COLHEITA</h2>
+            </div>
+
+            <div class="story-card">
+                <div class="story-icon">✧</div>
+                <div class="story-text">
+                    <p>Uma antiga fazenda foi abandonada há anos. A terra está seca, os campos estão vazios e ninguém acredita mais que ela possa voltar a produzir.</p>
+                    <p>Você recebeu uma última chance.</p>
+                </div>
+            </div>
+
+            <button id="startButton" class="main-button">
+                <span class="button-icon">▶</span>
+                COMEÇAR A AVENTURA
+            </button>
+
+            <div class="start-controls">
+                <div class="control-box">
+                    <div class="keys"><kbd>W</kbd></div>
+                    <span>MOVER</span>
+                </div>
+                <div class="control-box">
+                    <div class="keys"><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></div>
+                    <span>MOVER</span>
+                </div>
+                <div class="control-box">
+                    <div class="keys"><kbd>E</kbd></div>
+                    <span>INTERAGIR</span>
+                </div>
+            </div>
+
+            <div class="start-info">
+                <span>RPG 2D</span><span>•</span><span>EXPLORAÇÃO</span><span>•</span><span>FAZENDA</span>
+            </div>
+        </div>
+
+        <div class="copyright">PIXEL VALLEY • A ÚLTIMA COLHEITA</div>
+    </div>
+
+    <main id="gameContainer">
+        <header class="top-bar">
+            <div class="top-logo">
+                <div class="pixel-logo">PV</div>
+                <div class="top-title">
+                    <strong>PIXEL VALLEY</strong>
+                    <small>A ÚLTIMA COLHEITA</small>
+                </div>
+            </div>
+
+            <div class="farm-status">
+                <div class="status-item"><span class="status-label">DIA</span><strong>1</strong></div>
+                <div class="status-separator"></div>
+                <div class="status-item"><span class="status-label">ESTAÇÃO</span><strong>PRIMAVERA</strong></div>
+                <div class="status-separator"></div>
+                <div class="status-item"><span class="status-label">LOCAL</span><strong>FAZENDA</strong></div>
+            </div>
+
+            <div id="inventory">
+                <div class="resource-card"><div class="resource-symbol">🌲</div><div class="resource-data"><span>MADEIRA</span><strong id="wood">0</strong></div></div>
+                <div class="resource-card"><div class="resource-symbol">🪨</div><div class="resource-data"><span>PEDRA</span><strong id="stone">0</strong></div></div>
+                <div class="resource-card"><div class="resource-symbol">🌱</div><div class="resource-data"><span>SEMENTES</span><strong id="seeds">3</strong></div></div>
+                <div class="resource-card harvest-resource"><div class="resource-symbol">🥕</div><div class="resource-data"><span>COLHEITAS</span><strong id="crops">0</strong></div></div>
+            </div>
+        </header>
+
+        <section id="gameArea">
+            <div class="game-frame frame-top"></div>
+            <div class="game-frame frame-bottom"></div>
+            <div class="game-frame frame-left"></div>
+            <div class="game-frame frame-right"></div>
+
+            <canvas id="gameCanvas" width="900" height="550"></canvas>
+
+            <aside id="objective" class="quest-panel">
+                <div class="quest-header">
+                    <div class="quest-symbol">!</div>
+                    <div><span>MISSÃO PRINCIPAL</span><h3>A Última Colheita</h3></div>
+                </div>
+
+                <div class="quest-story">A fazenda precisa de uma primeira colheita para provar que ainda pode sobreviver.</div>
+                <div class="quest-section-title">OBJETIVOS</div>
+
+                <div class="quest-list">
+                    <div class="quest-line"><span class="quest-bullet">◆</span><p id="objective1">⬜ Preparar 3 terrenos</p></div>
+                    <div class="quest-line"><span class="quest-bullet">◆</span><p id="objective2">⬜ Plantar 3 sementes</p></div>
+                    <div class="quest-line"><span class="quest-bullet">◆</span><p id="objective3">⬜ Regar as plantações</p></div>
+                    <div class="quest-line"><span class="quest-bullet">◆</span><p id="objective4">⬜ Colher 3 plantações</p></div>
+                    <div class="quest-line final-objective"><span class="quest-bullet">◆</span><p id="objective5">⬜ Entregar a colheita para Elias</p></div>
+                </div>
+
+                <div class="quest-tip">
+                    <span>DICA</span>
+                    <p>Pressione <strong>E</strong> perto de objetos e personagens.</p>
+                </div>
+            </aside>
+
+            <div id="message">Explore a fazenda e pressione <strong>E</strong> para interagir.</div>
+
+            <div class="game-controls">
+                <div class="control-group">
+                    <div class="control-keys"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></div>
+                    <span>MOVIMENTO</span>
+                </div>
+                <div class="control-divider"></div>
+                <div class="control-group"><kbd class="large-key">E</kbd><span>INTERAGIR</span></div>
+            </div>
+
+            <div class="location-card">
+                <div class="location-icon">⌂</div>
+                <div><small>LOCALIZAÇÃO</small><strong>Fazenda Pixel Valley</strong></div>
+            </div>
+        </section>
+
+        <footer class="game-footer">
+            <div class="footer-status"><span class="online-dot"></span><span>SISTEMA ONLINE</span></div>
+            <div class="footer-message">A terra ainda pode florescer.</div>
+            <div class="footer-version">PV-01</div>
+        </footer>
+    </main>
+
+    <div id="winScreen" class="screen hidden">
+        <div class="victory-world">
+            <div class="victory-sky"></div>
+            <div class="victory-sun"></div>
+            <div class="victory-cloud cloud-v1"></div>
+            <div class="victory-cloud cloud-v2"></div>
+            <div class="victory-hill hill-one"></div>
+            <div class="victory-hill hill-two"></div>
+        </div>
+
+        <div class="victory-content">
+            <div class="victory-symbol">★</div>
+            <span class="victory-label">MISSÃO CONCLUÍDA</span>
+            <h1>A FAZENDA<br>ESTÁ VIVA</h1>
+
+            <div class="victory-divider"><span></span><i>✦</i><span></span></div>
+
+            <div class="victory-card">
+                <p class="victory-main">Você conseguiu recuperar a fazenda.</p>
+                <p class="victory-description">Depois de muito tempo abandonada, a terra finalmente voltou a produzir. Sua primeira colheita provou que Pixel Valley ainda tem um futuro.</p>
+            </div>
+
+            <div class="victory-reward">
+                <div class="reward-icon">🌾</div>
+                <div><span>RECOMPENSA</span><strong>PRIMEIRA COLHEITA</strong></div>
+            </div>
+
+            <button id="restartButton" class="main-button victory-button">↻ JOGAR NOVAMENTE</button>
+            <div class="victory-footer">FIM DA AVENTURA • PIXEL VALLEY</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
